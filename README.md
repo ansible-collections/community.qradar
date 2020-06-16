@@ -1,58 +1,67 @@
-# collection_template
-You can build a new repository for an Ansible Collection using this template by following [Creating a repository from a template](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template). This README.md contains recommended headings for your collection README.md, with comments describing what each section should contain. Once you have created your collection repository, delete this paragraph and the title above it from your README.md.
+# Ansible Collection - community.qradar
 
-# Foo Collection
-<!-- Add CI and code coverage badges here. Samples included below. -->
-[![CI](https://github.com/ansible-collections/REPONAMEHERE/workflows/CI/badge.svg?event=push)](https://github.com/ansible-collections/REPONAMEHERE/actions) [![Codecov](https://img.shields.io/codecov/c/github/ansible-collections/REPONAMEHERE)](https://codecov.io/gh/ansible-collections/REPONAMEHERE)
+[![Run Status](https://api.shippable.com/projects/5e6068ebe4b17a000756145d/badge?branch=master)](https://app.shippable.com/github/ansible-collections/community.qradar/dashboard/jobs) 
 
-<!-- Describe the collection and why a user would want to use it. What does the collection do? -->
+This repo hosts the `community.qradar` Ansible Collection.
 
-## Tested with Ansible
-
-<!-- List the versions of Ansible the collection has been tested with. Must match what is in galaxy.yml. -->
-
-## External requirements
-
-<!-- List any external resources the collection depends on, for example minimum versions of an OS, libraries, or utilities. Do not list other Ansible collections here. -->
-
-### Supported connections
-<!-- Optional. If your collection supports only specific connection types (such as HTTPAPI, netconf, or others), list them here. -->
-
-## Included content
-
-<!-- Galaxy will eventually list the module docs within the UI, but until that is ready, you may need to either describe your plugins etc here, or point to an external docsite to cover that information. -->
-
-## Using this collection
-
-<!--Include some quick examples that cover the most common use cases for your collection content. -->
-
-See [Ansible Using collections](https://docs.ansible.com/ansible/latest/user_guide/collections_using.html) for more details.
-
-## Contributing to this collection
-
-<!--Describe how the community can contribute to your collection. At a minimum, include how and where users can create issues to report problems or request features for this collection.  List contribution requirements, including preferred workflows and necessary testing, so you can benefit from community PRs. If you are following general Ansible contributor guidelines, you can link to - [Ansible Community Guide](https://docs.ansible.com/ansible/latest/community/index.html). -->
+The collection includes the community plugins to help the automation of IBM QRadar SIEM Platform.
 
 
-## Release notes
-<!--Add a link to a changelog.md file or an external docsite to cover this information. -->
+## Installation and Usage
 
-## Roadmap
+### Installing the Collection from Ansible Galaxy
 
-<!-- Optional. Include the roadmap for this collection, and the proposed release/versioning strategy so users can anticipate the upgrade/update cycle. -->
+Before using the Community IBM QRadar collection, you need to install it with the `ansible-galaxy` CLI:
 
-## More information
+    ansible-galaxy collection install community.qradar
 
-<!-- List out where the user can find additional information, such as working group meeting times, slack/IRC channels, or documentation for the product this collection automates. At a minimum, link to: -->
+You can also include it in a `requirements.yml` file and install it via `ansible-galaxy collection install -r requirements.yml` using the format:
 
-- [Ansible Collection overview](https://github.com/ansible-collections/overview)
-- [Ansible User guide](https://docs.ansible.com/ansible/latest/user_guide/index.html)
-- [Ansible Developer guide](https://docs.ansible.com/ansible/latest/dev_guide/index.html)
-- [Ansible Community code of conduct](https://docs.ansible.com/ansible/latest/community/code_of_conduct.html)
+```yaml
+collections:
+- name: community.qradar
+```
 
-## Licensing
 
-<!-- Include the appropriate license information here and a pointer to the full licensing details. If the collection contains modules migrated from the ansible/ansible repo, you must use the same license that existed in the ansible/ansible repo. See the GNU license example below. -->
+## Testing and Development
 
-GNU General Public License v3.0 or later.
+If you want to develop new content for this collection or improve what's already here, the easiest way to work on the collection is to clone it into one of the configured [`COLLECTIONS_PATHS`](https://docs.ansible.com/ansible/latest/reference_appendices/config.html#collections-paths), and work on it there.
 
-See [LICENSE](https://www.gnu.org/licenses/gpl-3.0.txt) to see the full text.
+### Testing with `ansible-test`
+
+The `tests` directory contains configuration for running sanity and integration tests using [`ansible-test`](https://docs.ansible.com/ansible/latest/dev_guide/testing_integration.html).
+
+You can run the collection's test suites with the commands:
+
+    ansible-test sanity
+    ansible-test network-integration --inventory /path/to/inventory
+
+
+## Publishing New Version
+
+The current process for publishing new versions of the IBM QRadar Community Collection is manual, and requires a user who has access to the `community` namespace on Ansible Galaxy to publish the build artifact.
+
+  1. Ensure `CHANGELOG.md` contains all the latest changes.
+  2. Update `galaxy.yml` with the new `version` for the collection.
+  3. Create a release in GitHub to tag the commit at the version to build.
+  4. Run the following commands to build and release the new version on Galaxy:
+
+     ```
+     ansible-galaxy collection build
+     ansible-galaxy collection publish ./community-qradar-$VERSION_HERE.tar.gz
+     ```
+
+After the version is published, verify it exists on the [IBM QRadar Community Collection Galaxy page](https://galaxy.ansible.com/community/qradar).
+
+
+## More Information
+
+For more information about Ansible's IBM QRadar integration, join the `#ansible-security` channel on Freenode IRC, and browse the resources in the [Security Automation Working Group](https://github.com/ansible/community/wiki/Security-Automation) Community wiki page.
+
+
+## License
+
+GNU General Public License v3.0 or later
+
+See [COPYING](COPYING) to see the full text.
+
