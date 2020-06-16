@@ -1,0 +1,17 @@
+namespace: community
+name: qradar
+version: 0.0.1
+readme: README.md
+authors:
+- Adam Miller @maxamillion
+description: |
+  Community developed Ansible Collection for IBM QRadar plugins.
+license_file: COPYING
+dependencies:
+  "ansible.netcommon": "*"
+repository: https://github.com/ansible-collections/community.qradar
+homepage: https://github.com/ansible-collections/community.qradar
+issues: https://github.com/ansible-collections/community.qradar/issues
+build_ignore:
+- tests/integration/inventory*
+tags: [community, ibm, qradar, security, siem]
