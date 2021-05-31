@@ -56,7 +56,7 @@ After the version is published, verify it exists on the [IBM QRadar Community Co
 
 ## More Information
 
-For more information about Ansible's IBM QRadar integration, join the `#ansible-security` channel on Freenode IRC, and browse the resources in the [Security Automation Working Group](https://github.com/ansible/community/wiki/Security-Automation) Community wiki page.
+For more information about Ansible's IBM QRadar integration, join the `#ansible-security` IRC channel on [irc.libera.chat](https://libera.chat/), and browse the resources in the [Security Automation Working Group](https://github.com/ansible/community/wiki/Security-Automation) Community wiki page.
 
 
 ## License
