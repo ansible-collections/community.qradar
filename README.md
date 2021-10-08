@@ -2,6 +2,8 @@
 
 [![Run Status](https://api.shippable.com/projects/5e6068ebe4b17a000756145d/badge?branch=master)](https://app.shippable.com/github/ansible-collections/community.qradar/dashboard/jobs) 
 
+**This repository has been archived. Refer to the [ibm.qradar collection repository](https://github.com/ansible-collections/ibm.qradar) instead.**
+
 This repo hosts the `community.qradar` Ansible Collection.
 
 The collection includes the community plugins to help the automation of IBM QRadar SIEM Platform.
